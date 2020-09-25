@@ -1,4 +1,4 @@
-package org.orkhon.controllers;
+package org.orkhon.controllers.user.auth;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +9,7 @@ import org.orkhon.infrastructure.Router;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainController  implements Initializable {
+public class LoginController  implements Initializable {
 
     @FXML
     public Button btnLogin;
@@ -17,7 +17,7 @@ public class MainController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnLogin.setOnMouseClicked(mouseEvent -> {
-            Router.getInstance().navigateTo(RouteUrl.LOGIN_VIEW);
+            Router.getInstance().navigateTo(RouteUrl.MAIN_VIEW);
         });
     }
 }
