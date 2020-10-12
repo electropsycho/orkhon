@@ -17,7 +17,7 @@ public class MainController  implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnLogin.setOnMouseClicked(mouseEvent -> {
-            Router.getInstance().navigateTo(RouteUrl.LOGIN_VIEW);
+            Router.instance().navigateTo(RouteUrl.LOGIN_VIEW);
         });
     }
 }

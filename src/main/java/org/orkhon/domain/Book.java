@@ -1,4 +1,4 @@
-package org.orkhon.models;
+package org.orkhon.domain;
 
 public class Book {
     private int id;

@@ -1,36 +1,20 @@
 package org.orkhon;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.orkhon.infrastructure.Context;
 import org.orkhon.infrastructure.RouteUrl;
-
-import java.util.Objects;
+import org.orkhon.infrastructure.Router;
 
 public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        var javaVersion = System.getProperty("java.version");
-        var view = Objects.requireNonNull(getClass().getResource(RouteUrl.LOGIN_VIEW));
-        Parent root = FXMLLoader.load(view);
         stage.setTitle("Orhun v1.0.0");
-        var scene = new Scene(root);
-        var stylesheet = getClass().getResource("/style/all.css").toExternalForm();
-        scene.getStylesheets().add(stylesheet);
-        Context.getInstance().setCurrentStage(stage);
-        stage.setScene(scene);
-//        Context.getInstance().addContextObject("RootScene", scene);
-//
-//        //scene.getStylesheets().add("/org.openlib/css/test.css");
-////        stage.getIcons().add(new Image(getClass().getResourceAsStream("/org/tulib/icons/calculating.png")));
-//        stage.setScene(Context.getInstance().getContextObject("RootScene"));
         stage.setMinWidth(700);
         stage.setMinHeight(500);
-        stage.show();
+        Context.instance().setCurrentStage(stage);
+        Router.instance().navigateTo(RouteUrl.LOGIN_VIEW);
     }
 
     public static void main(String[] args) {

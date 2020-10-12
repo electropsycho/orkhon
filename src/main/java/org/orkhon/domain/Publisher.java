@@ -1,4 +1,4 @@
-package org.orkhon.models;
+package org.orkhon.domain;
 
 import java.util.List;
 

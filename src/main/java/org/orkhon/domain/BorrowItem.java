@@ -1,9 +1,9 @@
-package org.orkhon.models;
+package org.orkhon.domain;
 
+import java.lang.invoke.LambdaConversionException;
 import java.util.Date;
 
-public class BorrowItem {
-    public int id;
+public class BorrowItem extends Entity<Long>{
     public int bookId;
     public int borrowTakerId;
     public int borrowGiverId;

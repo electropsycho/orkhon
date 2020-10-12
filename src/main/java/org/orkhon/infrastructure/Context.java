@@ -4,6 +4,7 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 
 /**
@@ -14,11 +15,11 @@ import java.util.Map;
 public class Context {
     private static Context instance;
 
-    public static Context getInstance() {
+    public static Context instance() {
         return instance == null ? new Context() : instance;
     }
 
-    private static final Map<String, Object> contextObjects = new HashMap<>();
+    private static final WeakHashMap<String, Object> contextObjects = new WeakHashMap<>();
     private static Stage currentStage;
 
     public Map<String, ?> getContextObjects() {
@@ -39,7 +40,10 @@ public class Context {
         contextObjects.clear();
     }
     public Stage getCurrentStage() {
-        return currentStage;
+        if (currentStage != null) {
+            return currentStage;
+        }
+        return  new Stage();
     }
     public void setCurrentStage(Stage stage) {
         currentStage = stage;
